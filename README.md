@@ -4,7 +4,7 @@ This is a client–server file transfer system using Python’s socket networkin
 
 ## Instructions for Build and Use
 
-[Software Demo](Put_Your_Video_Link_Here)
+[Software Demo](https://youtu.be/jXOcQhX2LkY)
 
 #### Steps to build and/or run the software:
 
@@ -23,8 +23,8 @@ This is a client–server file transfer system using Python’s socket networkin
 3. In VSCode change to the client.py file in your project folder and repeat the selection of "Run Python File in Dedicated Terminal" for the play option.
 4. Alternatively, enter python server.py in one open terminal. Then open another terminal and enter python client.py.
 5. Use the provided menu in the terminal to list, download, and upload files.
-6. To open and use multiple clients, while in the client.py file repeat the selection of "Run Python File in Dedicated Terminal" from the python play button option.
-7. Alternatively, to open and use multiple clients, enter python client.py in other open terminals.
+6. To open and use two clients, while in the client.py file click the python play button option to open a client in the python terminal.
+7. Alternatively, to open and use multiple clients, enter python client.py in other open terminals (After the 2nd client this is the only option for opening additional clients).
 8. To disconnect a client from the server enter 4 from the main menu options.
 9. To shut down the server enter 5 from the main menu options or enter CTRL + C in the terminal running the server.
     
