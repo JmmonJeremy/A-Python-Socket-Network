@@ -2,7 +2,7 @@
 """Files"""  # one program for the client (THIS ONE) and one program for the server 
 """Server""" #1 listens for connections on the ip address of (localhost 127.0.0.1) and port number () #2 processes request & sends a response back to client
 #3 runs inside a loop that continuously accepts new connections so that the server socket remains open to consistently handle disconnecting & connecting
-"""Client""" #1 connects to the waiting server #2 sends request message to the server #3 number, #4 v_date #5 week_number
+"""Client""" #1 connects to the waiting server #2 sends request message to the server
 """Stretch Challenge""" #1 Server responds to 3 requests types (UPLOAD, DOWNLOAD, LIST)
 
 """CODE to IMPORT libraries used"""
@@ -55,7 +55,9 @@ def handle_client(conn, addr):
                         # Receives a 4 KB chunk of the file
                         data = conn.recv(BUFFER_SIZE)
                         # Stop signal sent from client for end of file
-                        if data == b"EOF":
+                        if b"EOF" in data:
+                            # Write everything before the EOF
+                            file.write(data.replace(b"EOF", b""))
                             break
                         file.write(data)
                 # Sends the signal message to the client for a successful upload

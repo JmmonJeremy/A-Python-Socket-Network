@@ -2,7 +2,7 @@
 """Files"""  # one program for the client (THIS ONE) and one program for the server 
 """Server""" #1 listens for connections on the ip address of (localhost 127.0.0.1) and port number () #2 processes request & sends a response back to client
 #3 runs inside a loop that continuously accepts new connections so that the server socket remains open to consistently handle disconnecting & connecting
-"""Client""" #1 connects to the waiting server #2 sends request message to the server #3 number, #4 v_date #5 week_number
+"""Client""" #1 connects to the waiting server #2 sends request message to the server
 """Stretch Challenge""" #1 Server responds to 3 requests types (UPLOAD, DOWNLOAD, LIST)
 
 """CODE to IMPORT libraries used"""
@@ -20,15 +20,26 @@ def validate_menu_choice(prompt: str, min_value: int = 1, max_value: int = 7) ->
     while True:
         user_input = input(prompt).strip()
         if not user_input.isdigit():
-            print(f"ERROR! Please enter a number from the menu ({min_value}-{max_value}).")
+            print(f"\033[0m\033[31mERROR! Please enter a number from the menu ({min_value}-{max_value}).\033[0m\x1b[1m")
             continue
         number = int(user_input)
         if not (min_value <= number <= max_value):
-            print(f"ERROR! Please enter a number from the menu ({min_value}-{max_value}).")
+            print(f"\033[0m\033[31mERROR! Please enter a number from the menu ({min_value}-{max_value}).\033[0m\x1b[1m")
             continue
         return number
 
 def upload_file(sock, filename):
+    # Remove surrounding spaces for input
+    filename = filename.strip()
+    # Check if the 1st and last character are both the same &
+    # Then check if the first character starts with ' or "
+    if (filename[0] == filename[-1]) and filename.startswith(("'", '"')):
+        # slices the filename so 1st and last character are not included
+        filename = filename[1:-1]
+    # Check if file exists BEFORE sending request
+    if not os.path.exists(filename):
+        print("\n\033[31mError: File does not exist.\033[0m")
+        return
     # Converts Python string into bytes default is UTF-8 (8-bit blocks)
     sock.sendall(f"UPLOAD {filename}".encode())
     response = sock.recv(BUFFER_SIZE)
@@ -44,7 +55,7 @@ def upload_file(sock, filename):
         if confirmation == b"UPLOAD COMPLETE":
             print("\nYour file has been successfully uploaded.")
         else:
-            print("\nThe file upload failed.")  
+            print("\n\033[31mThe file upload failed.\033[0m")  
 
 def download_file(sock, filename):
     # Converts Python string into bytes default is UTF-8 (8-bit blocks)
@@ -62,7 +73,7 @@ def download_file(sock, filename):
                 file.write(data)
         print("\nDownload complete.")
     else:
-        print(response.decode())
+        print("\n\033[31m" + response.decode() + "\033[0m")
 
 def list_files(sock):
     sock.sendall(b"LIST")
@@ -94,7 +105,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
             list_files(client)
         # CODE to UPLOAD a file to the server
         elif choice == 2: #UPLOAD###########################################################################################
-            filename = input("(If the file is in a different location include the path to the file.)\nPlease enter the name of the file to be uploaded: ")   
+            filename = input("(If the file is located in a different directory than the program is then include the path to the file.)\nPlease enter the name of the file to be uploaded with its extension (Example: file.txt): ")   
             upload_file(client, filename)
         # CODE to DOWNLOAD a file from the server
         elif choice == 3: #DOWNLOAD#########################################################################################
