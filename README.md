@@ -1,12 +1,12 @@
-# Project Title (Update)
+# Python Socket, Threading, & OS Client-Server File Transfer System
 
 This is a client–server file transfer system using Python’s socket networking library for TCP communication, threading library to handle multiple clients at the same time, and os library to handle files and manage the directory. The server is set up to handle an UPLOAD request to upload any file, a LIST request to list all uploaded files, and a DOWNLOAD request to download any file that has been uploaded.
 
 ## Instructions for Build and Use
 
-[Software Demo](Put_Your_Video_Link_Here)
+[Software Demo](https://youtu.be/jXOcQhX2LkY)
 
-Steps to build and/or run the software:
+#### Steps to build and/or run the software:
 
 1. Go to the official Python website https://www.python.org/downloads/ and click link to Download Python 3.10 or newer
 2. Then double-click the download installer, check the box that says Add Python to PATH, and click Install Now
@@ -16,15 +16,15 @@ Steps to build and/or run the software:
 6. Create a python file for the client and import socket and os at the top of the file
 7. In the python client file insert the code for running the server
 
-Instructions for using the software:
+#### Instructions for using the software:
 
 1. In VSCode go to the server.py file in your project folder open the terminal at the bottom.
 2. Press the dropdown arrow on the play button in the top right corner of the screen and select "Run Python File in Dedicated Terminal" from the options.
 3. In VSCode change to the client.py file in your project folder and repeat the selection of "Run Python File in Dedicated Terminal" for the play option.
 4. Alternatively, enter python server.py in one open terminal. Then open another terminal and enter python client.py.
 5. Use the provided menu in the terminal to list, download, and upload files.
-6. To open and use multiple clients, while in the client.py file repeat the selection of "Run Python File in Dedicated Terminal" from the python play button option.
-7. Alternatively, to open and use multiple clients, enter python client.py in other open terminals.
+6. To open and use two clients, while in the client.py file click the python play button option to open a client in the python terminal.
+7. Alternatively, to open and use multiple clients, enter python client.py in other open terminals (After the 2nd client this is the only option for opening additional clients).
 8. To disconnect a client from the server enter 4 from the main menu options.
 9. To shut down the server enter 5 from the main menu options or enter CTRL + C in the terminal running the server.
     
@@ -83,6 +83,6 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] I plan on fixing the 5th Menu option to shut down the server using threads instead of a shutdown flag and timeout - so other client threads will be closed instead of keeping a connection until the close
-* [ ] I plan on using the file size to determine when a file is done uploading or downloading so that a file with the keyword EOF in it will not cause a problem
-* [ ] I plan to make the option to close the server only accessable to a super user with a password
+* [ ] I plan on fixing the 5th Menu option to shut down the server using threads instead of a shutdown flag and timeout - so other client threads will be closed instead of keeping a connection until they close.
+* [ ] I plan on using the file size to determine when a file is done uploading or downloading so that a file with the keyword EOF in it will not cause a problem.
+* [ ] I plan to number the list output for the list of uploaded files - so the count of uploaded files is easy to determine.
