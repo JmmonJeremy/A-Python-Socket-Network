@@ -6,7 +6,7 @@ This is a client–server file transfer system using Python’s socket networkin
 
 [Software Demo](Put_Your_Video_Link_Here)
 
-### Steps to build and/or run the software:
+#### Steps to build and/or run the software:
 
 1. Go to the official Python website https://www.python.org/downloads/ and click link to Download Python 3.10 or newer
 2. Then double-click the download installer, check the box that says Add Python to PATH, and click Install Now
@@ -16,7 +16,7 @@ This is a client–server file transfer system using Python’s socket networkin
 6. Create a python file for the client and import socket and os at the top of the file
 7. In the python client file insert the code for running the server
 
-### Instructions for using the software:
+#### Instructions for using the software:
 
 1. In VSCode go to the server.py file in your project folder open the terminal at the bottom.
 2. Press the dropdown arrow on the play button in the top right corner of the screen and select "Run Python File in Dedicated Terminal" from the options.
