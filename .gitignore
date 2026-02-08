@@ -4,5 +4,8 @@
 # Except Python files
 !*.py
 
+# Except README.md
+!README.md
+
 # Keep .gitignore tracked
 !.gitignore

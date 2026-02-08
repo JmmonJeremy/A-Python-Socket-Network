@@ -66,7 +66,7 @@ def download_file(sock, filename):
 
 def list_files(sock):
     sock.sendall(b"LIST")
-    print("\nList of Uploaded Files:")
+    print("\033[32m\x1b[1m\x1b[4mList of Uploaded Files:\033[0m")
     print(sock.recv(BUFFER_SIZE).decode())
 
 """CODE to connect the CLIENT"""
@@ -79,14 +79,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
     # Create a menu for server requests - #1 LIST, #2 UPLOAD, #3 DOWNLOAD, #4 DISCONNECT CLIENT, #5 SERVER SHUTDOWN
     choice = None #INTERFACE#####################################################################################
     while choice != 4 or choice != 5:
-        print("\nSelect an option:")
+        print("\n\x1b[1mSelect an option:")
         print("1) List uploaded files")
         print("2) Upload a file")
         print("3) Download a file")
         print("4) End your connection")
         print("5) Shut the server down") 
-        choice = validate_menu_choice(("   ->  "), 1, 5)
-        print("   ‾‾‾")
+        choice = validate_menu_choice(("---->  "), 1, 5)
+        print("      ‾‾‾\033[0m")
 
         """CODE to PERFORM selected ACTIONS"""
         #CODE to send a LIST request to the server
