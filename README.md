@@ -83,6 +83,6 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] I plan on fixing the 5th Menu option to shut down the server using threads instead of a shutdown flag and timeout - so other client threads will be closed instead of keeping a connection until the close
-* [ ] I plan on using the file size to determine when a file is done uploading or downloading so that a file with the keyword EOF in it will not cause a problem
-* [ ] I plan to make the option to close the server only accessable to a super user with a password
+* [ ] I plan on fixing the 5th Menu option to shut down the server using threads instead of a shutdown flag and timeout - so other client threads will be closed instead of keeping a connection until they close.
+* [ ] I plan on using the file size to determine when a file is done uploading or downloading so that a file with the keyword EOF in it will not cause a problem.
+* [ ] I plan to number the list output for the list of uploaded files - so the count of uploaded files is easy to determine.
